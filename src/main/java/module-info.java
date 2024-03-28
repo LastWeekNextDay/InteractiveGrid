@@ -8,4 +8,6 @@ module dev.lwnd.interactivegrid {
 
     opens dev.lwnd.interactivegrid to javafx.fxml;
     exports dev.lwnd.interactivegrid;
+    exports dev.lwnd.interactivegrid.area;
+    opens dev.lwnd.interactivegrid.area to javafx.fxml;
 }
