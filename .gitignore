@@ -81,3 +81,6 @@ fabric.properties
 
 # Maven folder
 .mvn/
+
+# Target folder
+target/
