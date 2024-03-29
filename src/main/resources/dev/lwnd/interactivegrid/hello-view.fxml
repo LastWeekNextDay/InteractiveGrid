@@ -2,15 +2,25 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="dev.lwnd.interactivegrid.HelloController">
+<?import javafx.scene.layout.GridPane?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="dev.lwnd.interactivegrid.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <HBox spacing="20.0"> <!-- HBox will place the grids next to each other -->
+        <!-- Grid for objects -->
+        <GridPane fx:id="objectsGrid" alignment="CENTER" hgap="5" vgap="5">
+            <!-- Column and row constraints can be added here -->
+        </GridPane>
+
+        <!-- Grid for area with logic -->
+        <GridPane fx:id="playGrid" alignment="CENTER" hgap="5" vgap="5">
+            <!-- Column and row constraints can be added here -->
+        </GridPane>
+    </HBox>
 </VBox>
