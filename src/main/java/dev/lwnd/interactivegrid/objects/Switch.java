@@ -17,28 +17,28 @@ public class Switch extends Interactor {
         Cell cellRight = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() + 1, getAttachedCell().getY());
         if (cellRight != null && cellRight.getAttachedObject() != null) {
             if (cellRight.getAttachedObject().getClass().getSimpleName().equals("WireHorizontal")) {
-                ((WireHorizontal) cellRight.getAttachedObject()).getActivated(this);
+                ((WireHorizontal) cellRight.getAttachedObject()).getActivatedA(this);
             }
         }
 
         Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() - 1, getAttachedCell().getY());
         if (cellLeft != null && cellLeft.getAttachedObject() != null) {
             if (cellLeft.getAttachedObject().getClass().getSimpleName().equals("WireHorizontal")) {
-                ((WireHorizontal) cellLeft.getAttachedObject()).getActivated(this);
+                ((WireHorizontal) cellLeft.getAttachedObject()).getActivatedA(this);
             }
         }
 
         Cell cellDown = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() + 1);
         if (cellDown != null && cellDown.getAttachedObject() != null) {
             if (cellDown.getAttachedObject().getClass().getSimpleName().equals("WireVertical")) {
-                ((WireVertical) cellDown.getAttachedObject()).getActivated(this);
+                ((WireVertical) cellDown.getAttachedObject()).getActivatedA(this);
             }
         }
 
         Cell cellUp = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() - 1);
         if (cellUp != null && cellUp.getAttachedObject() != null) {
             if (cellUp.getAttachedObject().getClass().getSimpleName().equals("WireVertical")) {
-                ((WireVertical) cellUp.getAttachedObject()).getActivated(this);
+                ((WireVertical) cellUp.getAttachedObject()).getActivatedA(this);
             }
         }
     }

@@ -10,7 +10,17 @@ public class Light extends Interactee {
     }
 
     @Override
-    public void getActivated(BaseObject interactor) {
+    public void getActivatedA(BaseObject interactor) {
         System.out.println("Light activated");
+    }
+
+    @Override
+    public void getActivatedB(BaseObject interactor) {
+        
+    }
+
+    @Override
+    public void getActivatedC(BaseObject interactor) {
+
     }
 }

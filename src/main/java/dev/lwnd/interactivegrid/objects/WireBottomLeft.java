@@ -4,8 +4,8 @@ import dev.lwnd.interactivegrid.area.Cell;
 import dev.lwnd.interactivegrid.objects.base.BaseObject;
 import dev.lwnd.interactivegrid.objects.base.Interactee;
 
-public class WireVertical extends Interactee {
-    public WireVertical(String name, String description, Cell cell) {
+public class WireBottomLeft extends Interactee {
+    public WireBottomLeft(String name, String description, Cell cell) {
         super(name, description, cell);
     }
 
@@ -26,13 +26,13 @@ public class WireVertical extends Interactee {
             }
         }
 
-        Cell cellUp = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() - 1);
-        if (cellUp != null && cellUp.getAttachedObject() != interactor) {
-            switch (cellUp.getAttachedObject().getClass().getSimpleName()) {
+        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() - 1, getAttachedCell().getY());
+        if (cellLeft != null && cellLeft.getAttachedObject() != interactor) {
+            switch (cellLeft.getAttachedObject().getClass().getSimpleName()) {
                 case "Interactor":
                     break;
                 case "Interactee":
-                    ((Interactee) cellUp.getAttachedObject()).getActivatedA(interactor);
+                    ((Interactee) cellLeft.getAttachedObject()).getActivatedA(interactor);
                     break;
             }
         }
@@ -55,13 +55,13 @@ public class WireVertical extends Interactee {
             }
         }
 
-        Cell cellUp = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() - 1);
-        if (cellUp != null && cellUp.getAttachedObject() != interactor) {
-            switch (cellUp.getAttachedObject().getClass().getSimpleName()) {
+        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() - 1, getAttachedCell().getY());
+        if (cellLeft != null && cellLeft.getAttachedObject() != interactor) {
+            switch (cellLeft.getAttachedObject().getClass().getSimpleName()) {
                 case "Interactor":
                     break;
                 case "Interactee":
-                    ((Interactee) cellUp.getAttachedObject()).getActivatedB(interactor);
+                    ((Interactee) cellLeft.getAttachedObject()).getActivatedB(interactor);
                     break;
             }
         }
@@ -84,13 +84,13 @@ public class WireVertical extends Interactee {
             }
         }
 
-        Cell cellUp = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() - 1);
-        if (cellUp != null && cellUp.getAttachedObject() != interactor) {
-            switch (cellUp.getAttachedObject().getClass().getSimpleName()) {
+        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() - 1, getAttachedCell().getY());
+        if (cellLeft != null && cellLeft.getAttachedObject() != interactor) {
+            switch (cellLeft.getAttachedObject().getClass().getSimpleName()) {
                 case "Interactor":
                     break;
                 case "Interactee":
-                    ((Interactee) cellUp.getAttachedObject()).getActivatedC(interactor);
+                    ((Interactee) cellLeft.getAttachedObject()).getActivatedC(interactor);
                     break;
             }
         }
