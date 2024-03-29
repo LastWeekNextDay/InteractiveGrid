@@ -16,11 +16,11 @@ public class Light extends Interactee {
 
     @Override
     public void getActivatedB(BaseObject interactor) {
-        
+        System.out.println("Light broke");
     }
 
     @Override
     public void getActivatedC(BaseObject interactor) {
-
+        System.out.println("Light flicker");
     }
 }
