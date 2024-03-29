@@ -2,10 +2,10 @@ package dev.lwnd.interactivegrid.area.base;
 
 import dev.lwnd.interactivegrid.area.Cell;
 
-public abstract class Grid {
+public abstract class BaseGrid {
     private Cell[][] cells;
 
-    public Grid(int rows, int cols) {
+    public BaseGrid(int rows, int cols) {
         cells = new Cell[rows][cols];
     }
 
