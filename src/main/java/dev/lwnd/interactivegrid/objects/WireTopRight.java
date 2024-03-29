@@ -4,8 +4,8 @@ import dev.lwnd.interactivegrid.area.Cell;
 import dev.lwnd.interactivegrid.objects.base.BaseObject;
 import dev.lwnd.interactivegrid.objects.base.Interactee;
 
-public class WireUpperRight extends Interactee {
-    public WireUpperRight(String name, String description, Cell cell) {
+public class WireTopRight extends Interactee {
+    public WireTopRight(String name, String description, Cell cell) {
         super(name, description, cell);
     }
 
