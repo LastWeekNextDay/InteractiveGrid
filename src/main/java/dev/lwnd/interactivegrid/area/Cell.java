@@ -1,5 +1,6 @@
 package dev.lwnd.interactivegrid.area;
 
+import dev.lwnd.interactivegrid.area.base.BaseGrid;
 import dev.lwnd.interactivegrid.objects.base.BaseObject;
 
 public class Cell {
@@ -7,7 +8,7 @@ public class Cell {
     private int y;
     private boolean isOccupied;
     private BaseObject attachedObject;
-    private PlayGrid baseGrid;
+    private BaseGrid baseGrid;
 
     public Cell(int x, int y, PlayGrid baseGrid) {
         this.x = x;
@@ -36,7 +37,7 @@ public class Cell {
         return attachedObject;
     }
 
-    public PlayGrid getBaseGrid() {
+    public BaseGrid getBaseGrid() {
         return baseGrid;
     }
 
