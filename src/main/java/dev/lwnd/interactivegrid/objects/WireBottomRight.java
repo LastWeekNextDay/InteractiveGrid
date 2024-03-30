@@ -5,8 +5,8 @@ import dev.lwnd.interactivegrid.objects.base.BaseObject;
 import dev.lwnd.interactivegrid.objects.base.Interactee;
 
 public class WireBottomRight extends Interactee {
-    public WireBottomRight(String name, String description, Cell cell) {
-        super(name, description, cell);
+    public WireBottomRight(String name, String description, Cell cell, String imagePath) {
+        super(name, description, cell, imagePath);
     }
 
     @Override

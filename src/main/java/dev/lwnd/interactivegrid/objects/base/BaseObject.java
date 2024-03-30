@@ -6,11 +6,13 @@ public abstract class BaseObject {
     private String name;
     private String description;
     private Cell attachedCell;
+    private String imagePath;
 
-    public BaseObject(String name, String description, Cell cell) {
+    public BaseObject(String name, String description, Cell cell, String imagePath) {
         this.name = name;
         this.description = description;
         this.attachedCell = cell;
+        this.imagePath = imagePath;
     }
 
     public String getName() {
@@ -35,5 +37,13 @@ public abstract class BaseObject {
 
     public void setAttachedCell(Cell attachedCell) {
         this.attachedCell = attachedCell;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class InteractiveGridApp extends Application {
     private static final int NUM_COLS = 10; // number of columns
     private static final int NUM_ROWS = 10; // number of rows
     private static final int CELL_SIZE = 50; // size for each cell
@@ -16,16 +16,14 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(InteractiveGridApp.class.getResource("main-view.fxml"));
 
-        // The total width is calculated by taking the width of all columns plus spacing and padding
         int totalWidth = NUM_COLS * CELL_SIZE + (NUM_COLS * 2) * SPACING + 2 * PADDING;
 
-        // The total height is calculated similarly, taking into account rows, spacing, and padding
         int totalHeight = NUM_ROWS * CELL_SIZE + (NUM_ROWS -1) * SPACING + 2 * PADDING;
 
         Scene scene = new Scene(fxmlLoader.load(), totalWidth, totalHeight);
-        stage.setTitle("Hello!");
+        stage.setTitle("Interactive Grid");
         stage.setScene(scene);
         stage.show();
     }

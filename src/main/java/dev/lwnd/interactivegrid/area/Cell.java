@@ -10,7 +10,7 @@ public class Cell {
     private BaseObject attachedObject;
     private BaseGrid baseGrid;
 
-    public Cell(int x, int y, PlayGrid baseGrid) {
+    public Cell(int x, int y, BaseGrid baseGrid) {
         this.x = x;
         this.y = y;
         this.baseGrid = baseGrid;
@@ -40,8 +40,16 @@ public class Cell {
     public BaseGrid getBaseGrid() {
         return baseGrid;
     }
+    public void setBaseGrid(BaseGrid baseGrid) {
+        this.baseGrid = baseGrid;
+    }
 
-    public void attach(BaseObject object) {
+    public void attachToGrid(BaseGrid grid) {
+        this.baseGrid = grid;
+        grid.setCell(this.y, this.x, this);
+    }
+
+    public void attachObject(BaseObject object) {
         object.setAttachedCell(this);
         isOccupied = true;
         attachedObject = object;
