@@ -78,16 +78,14 @@ public class MainController {
                 if (isInventory) {
                     cell.attachToGrid(invGrid);
 
-                    if (oIndex >= objects.length) {
-                        break;
+                    if (oIndex < objects.length) {
+                        cell.attachObject(objects[oIndex]);
+
+                        ImageView imageView = createImageView(cell.getAttachedObject().getImagePath());
+                        cellUI.getChildren().add(imageView);
+
+                        oIndex++;
                     }
-
-                    cell.attachObject(objects[oIndex]);
-
-                    ImageView imageView = createImageView(cell.getAttachedObject().getImagePath());
-                    cellUI.getChildren().add(imageView);
-
-                    oIndex++;
                 } else {
                     cell.attachToGrid(playGrid);
                 }
