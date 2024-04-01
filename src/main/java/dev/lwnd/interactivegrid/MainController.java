@@ -160,7 +160,6 @@ public class MainController {
                     success = true;
                     selectedObject.getAttachedCell().detach();
                     cellDictionary.get(cellUI).attachObject(selectedObject);
-                    selectedObject = null;
                 }
             }
             event.setDropCompleted(success);
@@ -171,6 +170,7 @@ public class MainController {
             if (event.getTransferMode() == TransferMode.MOVE) {
                 if (!isObjectGrid || cellUI.getChildren().isEmpty()) {
                     cellUI.getChildren().clear();
+                    selectedObject = null;
                 }
             }
             event.consume();
