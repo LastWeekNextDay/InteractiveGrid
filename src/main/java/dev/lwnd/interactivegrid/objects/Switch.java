@@ -49,7 +49,8 @@ public class Switch extends Interactor {
         if (cellLeft != null && cellLeft.getAttachedObject() != null) {
             if (cellLeft.getAttachedObject().getClass().getSimpleName().equals("WireHorizontal") ||
                     cellLeft.getAttachedObject().getClass().getSimpleName().equals("WireTopRight") ||
-                    cellLeft.getAttachedObject().getClass().getSimpleName().equals("WireBottomRight")){
+                    cellLeft.getAttachedObject().getClass().getSimpleName().equals("WireBottomRight") ||
+                    cellLeft.getAttachedObject().getClass().getSimpleName().equals("WireVerticalTopBottomRight")) {
                 if (activated) {
                     ((Interactee) cellLeft.getAttachedObject()).getActivatedA(this, this);
                 } else {
@@ -62,7 +63,8 @@ public class Switch extends Interactor {
         if (cellDown != null && cellDown.getAttachedObject() != null) {
             if (cellDown.getAttachedObject().getClass().getSimpleName().equals("WireVertical") ||
                     cellDown.getAttachedObject().getClass().getSimpleName().equals("WireTopLeft") ||
-                    cellDown.getAttachedObject().getClass().getSimpleName().equals("WireTopRight")) {
+                    cellDown.getAttachedObject().getClass().getSimpleName().equals("WireTopRight") ||
+                    cellDown.getAttachedObject().getClass().getSimpleName().equals("WireVerticalTopBottomRight")) {
                 if (activated) {
                     ((Interactee) cellDown.getAttachedObject()).getActivatedA(this, this);
                 } else {
@@ -75,7 +77,8 @@ public class Switch extends Interactor {
         if (cellUp != null && cellUp.getAttachedObject() != null) {
             if (cellUp.getAttachedObject().getClass().getSimpleName().equals("WireVertical") ||
                     cellUp.getAttachedObject().getClass().getSimpleName().equals("WireBottomLeft") ||
-                    cellUp.getAttachedObject().getClass().getSimpleName().equals("WireBottomRight")){
+                    cellUp.getAttachedObject().getClass().getSimpleName().equals("WireBottomRight") ||
+                    cellUp.getAttachedObject().getClass().getSimpleName().equals("WireVerticalTopBottomRight")) {
                 if (activated) {
                     ((Interactee) cellUp.getAttachedObject()).getActivatedA(this, this);
                 } else {

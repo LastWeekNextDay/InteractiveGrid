@@ -54,7 +54,7 @@ public class MainController {
             playGrid = new PlayGrid(numRows, numCols);
         }
 
-        BaseObject[] objects = new BaseObject[10];
+        BaseObject[] objects = new BaseObject[12];
         if (isInventory) {
             objects[0] = new Light("Light 1", "A light", null, "/LightOff.png", "/LightOn.png", "/LightBroken.png");
             objects[1] = new Switch("Switch 1", "A switch", null, "/SwitchOff.png", "/SwitchOn.png");
@@ -66,6 +66,8 @@ public class MainController {
             objects[7] = new WireVertical("WireVertical 1", "A vertical wire", null, "/WireVertical.png");
             objects[8] = new WireVertical("WireVertical 1", "A vertical wire", null, "/WireVertical.png");
             objects[9] = new WireVertical("WireVertical 1", "A vertical wire", null, "/WireVertical.png");
+            objects[10] = new Switch("Switch 2", "A switch", null, "/SwitchOff.png", "/SwitchOn.png");
+            objects[11] = new WireVerticalTopBottomRight("WireVerticalTopBottomRight 1", "A wire going top to bottom to right", null, "/WireVerticalTopBottomRight.png");
         }
         int oIndex = 0;
 
