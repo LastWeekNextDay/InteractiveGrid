@@ -7,7 +7,7 @@ public abstract class Interactee extends BaseObject{
         super(name, description, cell, imagePath);
     }
 
-    public abstract void getActivatedA(BaseObject interactor);
-    public abstract void getActivatedB(BaseObject interactor);
-    public abstract void getActivatedC(BaseObject interactor);
+    public abstract void getActivatedA(BaseObject interactor, BaseObject previousObject);
+    public abstract void getActivatedB(BaseObject interactor, BaseObject previousObject);
+    public abstract void getActivatedC(BaseObject interactor, BaseObject previousObject);
 }

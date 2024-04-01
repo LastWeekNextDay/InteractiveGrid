@@ -1,6 +1,7 @@
 package dev.lwnd.interactivegrid.objects;
 
 import dev.lwnd.interactivegrid.area.Cell;
+import dev.lwnd.interactivegrid.objects.base.Interactee;
 import dev.lwnd.interactivegrid.objects.base.Interactor;
 
 public class Switch extends Interactor {
@@ -24,59 +25,61 @@ public class Switch extends Interactor {
         if (activated) {
             setImagePath(switchOffImage);
             activated = false;
+            System.out.println("Switching off switch.");
         } else {
             setImagePath(switchOnImage);
             activated = true;
+            System.out.println("Switching on switch.");
         }
 
-        Cell cellRight = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() + 1, getAttachedCell().getY());
+        Cell cellRight = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY(), getAttachedCell().getX() + 1);
         if (cellRight != null && cellRight.getAttachedObject() != null) {
             if (cellRight.getAttachedObject().getClass().getSimpleName().equals("WireHorizontal") ||
                     cellRight.getAttachedObject().getClass().getSimpleName().equals("WireTopLeft") ||
                     cellRight.getAttachedObject().getClass().getSimpleName().equals("WireBottomLeft")) {
                 if (activated) {
-                    ((WireHorizontal) cellRight.getAttachedObject()).getActivatedC(this);
+                    ((Interactee) cellRight.getAttachedObject()).getActivatedA(this, this);
                 } else {
-                    ((WireHorizontal) cellRight.getAttachedObject()).getActivatedA(this);
+                    ((Interactee) cellRight.getAttachedObject()).getActivatedC(this, this);
                 }
             }
         }
 
-        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() - 1, getAttachedCell().getY());
+        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY(), getAttachedCell().getX() - 1);
         if (cellLeft != null && cellLeft.getAttachedObject() != null) {
             if (cellLeft.getAttachedObject().getClass().getSimpleName().equals("WireHorizontal") ||
                     cellLeft.getAttachedObject().getClass().getSimpleName().equals("WireTopRight") ||
                     cellLeft.getAttachedObject().getClass().getSimpleName().equals("WireBottomRight")){
                 if (activated) {
-                    ((WireHorizontal) cellLeft.getAttachedObject()).getActivatedC(this);
+                    ((Interactee) cellLeft.getAttachedObject()).getActivatedA(this, this);
                 } else {
-                    ((WireHorizontal) cellLeft.getAttachedObject()).getActivatedA(this);
+                    ((Interactee) cellLeft.getAttachedObject()).getActivatedC(this, this);
                 }
             }
         }
 
-        Cell cellDown = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() + 1);
+        Cell cellDown = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY() + 1, getAttachedCell().getX());
         if (cellDown != null && cellDown.getAttachedObject() != null) {
             if (cellDown.getAttachedObject().getClass().getSimpleName().equals("WireVertical") ||
                     cellDown.getAttachedObject().getClass().getSimpleName().equals("WireTopLeft") ||
                     cellDown.getAttachedObject().getClass().getSimpleName().equals("WireTopRight")) {
                 if (activated) {
-                    ((WireVertical) cellDown.getAttachedObject()).getActivatedC(this);
+                    ((Interactee) cellDown.getAttachedObject()).getActivatedA(this, this);
                 } else {
-                    ((WireVertical) cellDown.getAttachedObject()).getActivatedA(this);
+                    ((Interactee) cellDown.getAttachedObject()).getActivatedC(this, this);
                 }
             }
         }
 
-        Cell cellUp = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() - 1);
+        Cell cellUp = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY() - 1, getAttachedCell().getX());
         if (cellUp != null && cellUp.getAttachedObject() != null) {
             if (cellUp.getAttachedObject().getClass().getSimpleName().equals("WireVertical") ||
                     cellUp.getAttachedObject().getClass().getSimpleName().equals("WireBottomLeft") ||
                     cellUp.getAttachedObject().getClass().getSimpleName().equals("WireBottomRight")){
                 if (activated) {
-                    ((WireVertical) cellUp.getAttachedObject()).getActivatedC(this);
+                    ((Interactee) cellUp.getAttachedObject()).getActivatedA(this, this);
                 } else {
-                    ((WireVertical) cellUp.getAttachedObject()).getActivatedA(this);
+                    ((Interactee) cellUp.getAttachedObject()).getActivatedC(this, this);
                 }
             }
         }

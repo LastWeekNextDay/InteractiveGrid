@@ -40,12 +40,14 @@ public class MainController {
 
     @FXML
     public void initialize() {
+        System.out.println("Initializing...");
         cellDictionary = new Hashtable<>();
         populateGrid(invGridUI, 2, 10, true);
         populateGrid(playGridUI, 10, 10, false);
     }
 
     private void populateGrid(GridPane gridUI, int numCols, int numRows, boolean isInventory) {
+        System.out.println("Populating grid..." + (isInventory ? "Inventory Grid" : "Play Grid"));
         if (isInventory && invGrid == null) {
             invGrid = new InventoryGrid(numRows, numCols);
         } else if (!isInventory && playGrid == null) {
@@ -119,6 +121,7 @@ public class MainController {
     }
 
     private void initiateDrag(Pane cellUI, MouseEvent event) {
+        System.out.println("Initiating drag...");
         if (!cellUI.getChildren().isEmpty() && cellUI.getChildren().get(0) instanceof ImageView) {
             Dragboard db = cellUI.startDragAndDrop(TransferMode.MOVE);
             ClipboardContent content = new ClipboardContent();
@@ -131,9 +134,11 @@ public class MainController {
             db.setDragView(((ImageView) cellUI.getChildren().get(0)).getImage());
 
             cellUI.setOnDragDone(eventDone -> {
+                System.out.println("On drag done...");
                 if (eventDone.getTransferMode() == TransferMode.MOVE) {
                     cellUI.getChildren().clear();
                 }
+                selectedObject = null;
                 eventDone.consume();
             });
 
@@ -144,6 +149,7 @@ public class MainController {
 
     private void setupDropHandling(Pane cellUI, boolean isObjectGrid) {
         cellUI.setOnDragOver(event -> {
+            System.out.println("On drag over...");
             if (event.getDragboard().hasString()) {
                 event.acceptTransferModes(TransferMode.MOVE);
             }
@@ -151,6 +157,7 @@ public class MainController {
         });
 
         cellUI.setOnDragDropped(event -> {
+            System.out.println("On drag dropped...");
             Dragboard db = event.getDragboard();
             boolean success = false;
             if (db.hasString()) {
@@ -167,10 +174,10 @@ public class MainController {
         });
 
         cellUI.setOnDragDone(event -> {
+            System.out.println("On drag done...");
             if (event.getTransferMode() == TransferMode.MOVE) {
                 if (!isObjectGrid || cellUI.getChildren().isEmpty()) {
                     cellUI.getChildren().clear();
-                    selectedObject = null;
                 }
             }
             event.consume();
@@ -178,11 +185,19 @@ public class MainController {
     }
 
     private void handleCellClick(MouseEvent event) {
+        System.out.println("Handling cell click...");
         if (!event.isSecondaryButtonDown()) {
             return;
         }
 
         Pane clickedCell = (Pane) event.getSource();
+
+        if (clickedCell == null){
+            ImageView imageView = (ImageView) event.getSource();
+            clickedCell = (Pane) imageView.getParent();
+        }
+
+        System.out.println("Clicked cell: " + clickedCell);
 
         if (clickedCell.getChildren().isEmpty()) {
             return;
@@ -198,11 +213,13 @@ public class MainController {
 
             for (int i = 0; i < playGridUI.getChildren().size(); i++) {
                 Pane cellUI = (Pane) playGridUI.getChildren().get(i);
-                Cell cellObj = cellDictionary.get(cellUI);
-                if (!cellUI.getChildren().isEmpty() && cellObj.getAttachedObject().getImagePath() != ((ImageView) cellUI.getChildren().get(0)).getImage().getUrl()) {
+
+                if (!cellUI.getChildren().isEmpty()) {
                     cellUI.getChildren().clear();
+                    Cell cellObj = cellDictionary.get(cellUI);
                     ImageView imageView = createImageView(cellObj.getAttachedObject().getImagePath());
                     cellUI.getChildren().add(imageView);
+                    System.out.println("Cell updated with new image: " + cellObj.getAttachedObject().getImagePath());
                 }
             }
         }

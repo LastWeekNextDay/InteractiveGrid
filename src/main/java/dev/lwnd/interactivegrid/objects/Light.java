@@ -17,20 +17,20 @@ public class Light extends Interactee {
     }
 
     @Override
-    public void getActivatedA(BaseObject interactor) {
+    public void getActivatedA(BaseObject interactor, BaseObject previousObject) {
         System.out.println("Light activated");
         setImagePath(lightOnImage);
     }
 
     @Override
-    public void getActivatedB(BaseObject interactor) {
+    public void getActivatedB(BaseObject interactor, BaseObject previousObject) {
         System.out.println("Light broke");
         setImagePath(lightBrokenImage);
     }
 
     @Override
-    public void getActivatedC(BaseObject interactor) {
-        System.out.println("Light diaactivated");
+    public void getActivatedC(BaseObject interactor, BaseObject previousObject) {
+        System.out.println("Light deactivated");
         setImagePath(lightOffImage);
     }
 }

@@ -10,88 +10,64 @@ public class WireBottomLeft extends Interactee {
     }
 
     @Override
-    public void getActivatedA(BaseObject interactor) {
+    public void getActivatedA(BaseObject interactor, BaseObject previousObject) {
         if (getAttachedCell() == null) {
             return;
         }
 
-        Cell cellDown = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() + 1);
-        if (cellDown != null && cellDown.getAttachedObject() != interactor) {
-            switch (cellDown.getAttachedObject().getClass().getSimpleName()) {
-                case "Interactor":
-                    break;
-                case "Interactee":
-                    ((Interactee) cellDown.getAttachedObject()).getActivatedA(interactor);
-                    break;
+        Cell cellDown = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY() + 1, getAttachedCell().getX());
+        if (cellDown != null && previousObject.getAttachedCell() != cellDown) {
+            if (cellDown.getAttachedObject() instanceof Interactee) {
+                ((Interactee) cellDown.getAttachedObject()).getActivatedA(interactor, this);
             }
         }
 
-        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() - 1, getAttachedCell().getY());
-        if (cellLeft != null && cellLeft.getAttachedObject() != interactor) {
-            switch (cellLeft.getAttachedObject().getClass().getSimpleName()) {
-                case "Interactor":
-                    break;
-                case "Interactee":
-                    ((Interactee) cellLeft.getAttachedObject()).getActivatedA(interactor);
-                    break;
+        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY(), getAttachedCell().getX() - 1);
+        if (cellLeft != null && previousObject.getAttachedCell() != cellLeft) {
+            if (cellLeft.getAttachedObject() instanceof Interactee) {
+                ((Interactee) cellLeft.getAttachedObject()).getActivatedA(interactor, this);
             }
         }
     }
 
     @Override
-    public void getActivatedB(BaseObject interactor) {
+    public void getActivatedB(BaseObject interactor, BaseObject previousObject) {
         if (getAttachedCell() == null) {
             return;
         }
 
-        Cell cellDown = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() + 1);
-        if (cellDown != null && cellDown.getAttachedObject() != interactor) {
-            switch (cellDown.getAttachedObject().getClass().getSimpleName()) {
-                case "Interactor":
-                    break;
-                case "Interactee":
-                    ((Interactee) cellDown.getAttachedObject()).getActivatedB(interactor);
-                    break;
+        Cell cellDown = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY() + 1, getAttachedCell().getX());
+        if (cellDown != null && previousObject.getAttachedCell() != cellDown) {
+            if (cellDown.getAttachedObject() instanceof Interactee) {
+                ((Interactee) cellDown.getAttachedObject()).getActivatedB(interactor, this);
             }
         }
 
-        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() - 1, getAttachedCell().getY());
-        if (cellLeft != null && cellLeft.getAttachedObject() != interactor) {
-            switch (cellLeft.getAttachedObject().getClass().getSimpleName()) {
-                case "Interactor":
-                    break;
-                case "Interactee":
-                    ((Interactee) cellLeft.getAttachedObject()).getActivatedB(interactor);
-                    break;
+        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY(), getAttachedCell().getX() - 1);
+        if (cellLeft != null && previousObject.getAttachedCell() != cellLeft) {
+            if (cellLeft.getAttachedObject() instanceof Interactee) {
+                ((Interactee) cellLeft.getAttachedObject()).getActivatedB(interactor, this);
             }
         }
     }
 
     @Override
-    public void getActivatedC(BaseObject interactor) {
+    public void getActivatedC(BaseObject interactor, BaseObject previousObject) {
         if (getAttachedCell() == null) {
             return;
         }
 
-        Cell cellDown = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX(), getAttachedCell().getY() + 1);
-        if (cellDown != null && cellDown.getAttachedObject() != interactor) {
-            switch (cellDown.getAttachedObject().getClass().getSimpleName()) {
-                case "Interactor":
-                    break;
-                case "Interactee":
-                    ((Interactee) cellDown.getAttachedObject()).getActivatedC(interactor);
-                    break;
+        Cell cellDown = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY() + 1, getAttachedCell().getX());
+        if (cellDown != null && previousObject.getAttachedCell() != cellDown) {
+            if (cellDown.getAttachedObject() instanceof Interactee) {
+                ((Interactee) cellDown.getAttachedObject()).getActivatedC(interactor, this);
             }
         }
 
-        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getX() - 1, getAttachedCell().getY());
-        if (cellLeft != null && cellLeft.getAttachedObject() != interactor) {
-            switch (cellLeft.getAttachedObject().getClass().getSimpleName()) {
-                case "Interactor":
-                    break;
-                case "Interactee":
-                    ((Interactee) cellLeft.getAttachedObject()).getActivatedC(interactor);
-                    break;
+        Cell cellLeft = getAttachedCell().getBaseGrid().getCell(getAttachedCell().getY(), getAttachedCell().getX() - 1);
+        if (cellLeft != null && previousObject.getAttachedCell() != cellLeft) {
+            if (cellLeft.getAttachedObject() instanceof Interactee) {
+                ((Interactee) cellLeft.getAttachedObject()).getActivatedC(interactor, this);
             }
         }
     }
